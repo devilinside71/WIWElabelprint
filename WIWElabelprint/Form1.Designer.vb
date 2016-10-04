@@ -170,7 +170,7 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(616, 365)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "Form1"
-        Me.Text = "WIWE Eszköz-azonosító nyomtató"
+        Me.Text = "WIWE Eszköz-azonosító nyomtató    ©2020 Sanatmetal Kft."
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
