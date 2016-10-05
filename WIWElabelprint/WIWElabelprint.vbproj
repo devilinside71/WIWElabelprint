@@ -161,6 +161,9 @@
     <Content Include="Labels.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ZebraPrinters.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

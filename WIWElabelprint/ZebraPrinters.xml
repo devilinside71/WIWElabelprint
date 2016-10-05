@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <printers>
   <printer name="Marika GC420t ZPL">
-    <winname>FrePDF</winname>
+    <winname>GC420T</winname>
   </printer>
 </printers> 
