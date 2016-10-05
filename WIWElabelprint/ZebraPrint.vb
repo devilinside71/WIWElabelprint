@@ -163,7 +163,7 @@ Public Class ZebraPrint
     End Function
     Public Shared PrinterNames As List(Of String) = New List(Of String)
     Public Shared PrinterWinNames As List(Of String) = New List(Of String)
-    Public Shared Sub LoadPrinters(Optional printers_filename As String = "Printers.xml")
+    Public Shared Sub LoadPrinters(Optional printers_filename As String = "ZebraPrinters.xml")
         Dim m_xmlr As XmlTextReader
         'Create the XML Reader
         m_xmlr = New XmlTextReader(printers_filename)
@@ -190,5 +190,36 @@ Public Class ZebraPrint
         End While
         'close the reader
         m_xmlr.Close()
+    End Sub
+    Public Shared labelnames As List(Of String) = New List(Of String)
+    Public Shared labelcodes As List(Of String) = New List(Of String)
+    Public Shared Sub LoadLabels()
+        Dim m_xmlr As XmlTextReader
+        'Create the XML Reader
+        m_xmlr = New XmlTextReader("Labels.xml")
+        'Disable whitespace so that you don't have to read over whitespaces
+        m_xmlr.WhitespaceHandling = WhitespaceHandling.None
+        'read the xml declaration and advance to family tag
+        m_xmlr.Read()
+        'read the family tag
+        m_xmlr.Read()
+        'Load the Loop
+        While Not m_xmlr.EOF
+            'Go to the name tag
+            m_xmlr.Read()
+            'if not start element exit while loop
+            If Not m_xmlr.IsStartElement() Then
+                Exit While
+            End If
+            'Get the Gender Attribute Value
+            labelnames.Add(m_xmlr.GetAttribute("name"))
+            'Read elements firstname and lastname
+            m_xmlr.Read()
+            'Get the firstName Element Value
+            labelcodes.Add(m_xmlr.ReadElementString("code"))
+        End While
+        'close the reader
+        m_xmlr.Close()
+
     End Sub
 End Class

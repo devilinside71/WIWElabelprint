@@ -102,6 +102,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SQLiteDatabase.vb" />
+    <Compile Include="SQLiteTL.vb" />
     <Compile Include="ZebraPrint.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +131,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="WIWEdevices.s3db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SM_kicsi.jpg" />
