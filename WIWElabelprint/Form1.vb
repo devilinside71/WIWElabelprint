@@ -13,6 +13,7 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonPrinterTest_Click(sender As Object, e As EventArgs) Handles ButtonPrinterTest.Click
+        Call PrintZPL("TESZT12345678", 1)
 
     End Sub
 
@@ -23,31 +24,31 @@ Public Class Form1
         TextBoxID.BackColor = Color.White
         If My.Settings.Clipboard = True Then
             strRes = LoadID.GetIDfromClipboard
-            TextBoxLog.Text = TextBoxLog.Text & vbCrLf & Now & " Vágólapról:" & vbCrLf & strRes
+            TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & Now & " Vágólapról:" & vbCrLf & strRes)
         Else
             strRes = LoadID.GetIDfromFile
-            TextBoxLog.Text = TextBoxLog.Text & vbCrLf & Now & " Fájlból:" & vbCrLf & My.Settings.IDFilePath & vbCrLf & strRes
+            TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & Now & " Fájlból:" & vbCrLf & My.Settings.IDFilePath & vbCrLf & strRes)
         End If
         TextBoxID.Text = strRes
         blnValidID = LoadID.IsWiwe(strRes)
         If blnValidID Then
-            TextBoxLog.Text = TextBoxLog.Text & vbCrLf & "ID OK"
-            TextBoxID.BackColor = Color.Green
+            TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "ID OK")
+            If IsMACInTable("WIWEdevices.s3db", strRes) = False Then
+                TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "Új WIWE")
+                TextBoxID.BackColor = Color.MediumSeaGreen
+                Call InsertWIWEData("WIWEdevices.s3db", strRes, "WIWE")
+                Call PrintZPL(strRes, NumericUpDownQty.Value.ToString)
+            Else
+                TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "WIWE már az adatbázisban")
+                TextBoxID.BackColor = Color.Red
+            End If
+
         Else
-            TextBoxLog.Text = TextBoxLog.Text & vbCrLf & "ÉRVÉNYTELEN ID"
+            TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "ÉRVÉNYTELEN ID")
             TextBoxID.BackColor = Color.Red
         End If
 
-        TextBoxLog.Text = TextBoxLog.Text & vbCrLf & "-----------------------"
-    End Sub
-    ''' <summary>
-    ''' Execute database and printing operations
-    ''' </summary>
-    ''' <param name="wiwe_name">WIWE device name</param>
-    ''' <param name="wiwe_mac">WIWE BT MAC address</param>
-    Private Sub ProcessNewWIWE(wiwe_name As String, wiwe_mac As String)
-        Call InsertWIWEData("WIWEdevices.s3db", wiwe_mac, wiwe_name)
-        Call PrintZPL(wiwe_mac, 1)
+        TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "-----------------------")
     End Sub
     ''' <summary>
     ''' Prints label.
@@ -57,19 +58,20 @@ Public Class Form1
     ''' <param name="qty">Quantity of labels</param>
     Public Sub PrintZPL(device_mac As String, qty As Integer)
         Dim s As String
-        Dim pd As New PrintDialog()
-        Dim res
+        Dim res As Boolean
 
         s = ZebraPrint.labelcodes(0)
         s = s.Replace("VONALKOD", device_mac)
         s = s.Replace("LABELQTY", Trim(CStr(qty)))
 
         'Console.WriteLine(s)
-        'Debug.Print(s)
-        ' Open the printer dialog box, and then allow the user to select a printer.
+        Debug.Print(s)
         res = ZebraPrint.SendStringToPrinter(ZebraPrint.PrinterWinNames(0), s)
 
     End Sub
+    ''' <summary>
+    ''' Adatbázis és LOG szöveg archiválása
+    ''' </summary>
     Private Sub ArchiveDatabase()
         Dim timeStamp As String = DateTime.Now.ToString("yyyyMMddhhmmss")
         Dim dt As DateTime = DateTime.ParseExact(timeStamp, "yyyyMMddhhmmss", Nothing)
@@ -91,8 +93,12 @@ Public Class Form1
 
             Console.WriteLine(newFileName)
             File.Copy("WIWEdevices.s3db", newFileName, True)
+            Debug.Print("Adatbázis archiválva")
             If res = DialogResult.Yes Then
                 File.Copy(path & "\Lib\WIWEdevices.s3db", path & "\WIWEdevices.s3db", True)
+                TextBoxID.Text = vbNullString
+                TextBoxLog.Text = vbNullString
+                TextBoxID.BackColor = Color.White
             End If
 
             Dim FILE_NAME As String = path & "\Archive\WIWEdevices_" & strTimeStamp & ".log"
