@@ -10,6 +10,7 @@
         Dim strRes As String
         Dim objReader As New System.IO.StreamReader(My.Settings.IDFilePath)
         strRes = objReader.ReadLine()
+        objReader.Close()
         Return strRes
     End Function
 
