@@ -94,7 +94,7 @@ Partial Class Form1
         'TextBoxLog
         '
         Me.TextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxLog.Font = New System.Drawing.Font("Courier New", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.TextBoxLog.Font = New System.Drawing.Font("Courier New", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.TextBoxLog.Location = New System.Drawing.Point(3, 82)
         Me.TextBoxLog.Multiline = True
         Me.TextBoxLog.Name = "TextBoxLog"

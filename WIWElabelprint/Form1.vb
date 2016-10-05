@@ -12,9 +12,27 @@
     End Sub
 
     Private Sub ButtonMain_Click(sender As Object, e As EventArgs) Handles ButtonMain.Click
-        'Read from clipboard
+        'Read from clipboard or file
+        Dim strRes As String
+        Dim blnValidID As Boolean
+        TextBoxID.BackColor = Color.White
+        If My.Settings.Clipboard = True Then
+            strRes = LoadID.GetIDfromClipboard
+            TextBoxLog.Text = TextBoxLog.Text & vbCrLf & Now & " Vágólapról:" & vbCrLf & strRes
+        Else
+            strRes = LoadID.GetIDfromFile
+            TextBoxLog.Text = TextBoxLog.Text & vbCrLf & Now & " Fájlból:" & vbCrLf & My.Settings.IDFilePath & vbCrLf & strRes
+        End If
+        TextBoxID.Text = strRes
+        blnValidID = LoadID.IsWiwe(strRes)
+        If blnValidID Then
+            TextBoxLog.Text = TextBoxLog.Text & vbCrLf & "ID OK"
+            TextBoxID.BackColor = Color.Green
+        Else
+            TextBoxLog.Text = TextBoxLog.Text & vbCrLf & "ÉRVÉNYTELEN ID"
+            TextBoxID.BackColor = Color.Red
+        End If
 
-
-
+        TextBoxLog.Text = TextBoxLog.Text & vbCrLf & "-----------------------"
     End Sub
 End Class
