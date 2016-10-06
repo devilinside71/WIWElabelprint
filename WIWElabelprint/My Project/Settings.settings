@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Clipboard" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="IDFilePath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">l:\LOGISZT\1_Szemelyes_mappak\Tamas_Laszlo\WIWE_teszt\WIWE_ID.txt</Value>

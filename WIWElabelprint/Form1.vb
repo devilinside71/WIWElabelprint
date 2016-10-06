@@ -21,34 +21,38 @@ Public Class Form1
         'Read from clipboard or file
         Dim strRes As String
         Dim blnValidID As Boolean
+        Dim strTextOut As String
+
+        strTextOut = vbNullString
         TextBoxID.BackColor = Color.White
         If My.Settings.Clipboard = True Then
             strRes = LoadID.GetIDfromClipboard
-            TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & Now & " Vágólapról:" & vbCrLf & strRes)
+            strTextOut = Now & " Vágólapról:" & vbCrLf & strRes
         Else
             strRes = LoadID.GetIDfromFile
-            TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & Now & " Fájlból:" & vbCrLf & My.Settings.IDFilePath & vbCrLf & strRes)
+            strTextOut = Now & " Fájlból:" & vbCrLf & My.Settings.IDFilePath & vbCrLf & strRes
         End If
         TextBoxID.Text = strRes
         blnValidID = LoadID.IsWiwe(strRes)
         If blnValidID Then
-            TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "ID OK")
+            strTextOut = strTextOut & vbCrLf & vbCrLf & "ID OK"
             If IsMACInTable("WIWEdevices.s3db", strRes) = False Then
-                TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "Új WIWE")
+                strTextOut = strTextOut & vbCrLf & vbCrLf & "Új WIWE"
                 TextBoxID.BackColor = Color.MediumSeaGreen
                 Call InsertWIWEData("WIWEdevices.s3db", strRes, "WIWE")
                 Call PrintZPL(strRes, NumericUpDownQty.Value.ToString)
             Else
-                TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "WIWE már az adatbázisban")
+                strTextOut = strTextOut & vbCrLf & vbCrLf & "WIWE már az adatbázisban"
                 TextBoxID.BackColor = Color.Red
             End If
 
         Else
-            TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "ÉRVÉNYTELEN ID")
+            strTextOut = strTextOut & vbCrLf & vbCrLf & "ÉRVÉNYTELEN ID"
             TextBoxID.BackColor = Color.Red
         End If
 
-        TextBoxLog.AppendText(TextBoxLog.Text & vbCrLf & "-----------------------")
+        strTextOut = strTextOut & vbCrLf & vbCrLf & "-----------------------"
+        TextBoxLog.Text = strTextOut & vbCrLf & TextBoxLog.Text
     End Sub
     ''' <summary>
     ''' Prints label.
