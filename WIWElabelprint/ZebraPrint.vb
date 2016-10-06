@@ -124,6 +124,8 @@ Public Class ZebraPrint
     Public Shared Function SendStringToPrinter(ByVal szPrinterName As String, ByVal szString As String)
         Dim pBytes As IntPtr
         Dim dwCount As Int32
+        Dim result As String
+        result = vbNullString
         ' How many characters are in the string?
         dwCount = szString.Length()
         ' Assume that the printer is expecting ANSI text, and then convert
@@ -134,6 +136,7 @@ Public Class ZebraPrint
         Marshal.FreeCoTaskMem(pBytes)
         Console.WriteLine("Print to " & szPrinterName)
         Console.WriteLine(szString)
+        Return result
     End Function
 
     'Change system keyboard to English
