@@ -184,18 +184,19 @@ Public Class ZebraPrint
             If Not m_xmlr.IsStartElement() Then
                 Exit While
             End If
-            'Get the Gender Attribute Value
             PrinterNames.Add(m_xmlr.GetAttribute("name"))
-            'Read elements firstname and lastname
+
             m_xmlr.Read()
-            'Get the firstName Element Value
+            If Not m_xmlr.IsStartElement() Then
+                Exit While
+            End If
             PrinterWinNames.Add(m_xmlr.ReadElementString("winname"))
         End While
         'close the reader
         m_xmlr.Close()
     End Sub
-    Public Shared labelnames As List(Of String) = New List(Of String)
-    Public Shared labelcodes As List(Of String) = New List(Of String)
+    Public Shared LabelNames As List(Of String) = New List(Of String)
+    Public Shared LabelCodes As List(Of String) = New List(Of String)
     Public Shared Sub LoadLabels()
         Dim m_xmlr As XmlTextReader
         'Create the XML Reader
@@ -214,15 +215,15 @@ Public Class ZebraPrint
             If Not m_xmlr.IsStartElement() Then
                 Exit While
             End If
-            'Get the Gender Attribute Value
-            labelnames.Add(m_xmlr.GetAttribute("name"))
-            'Read elements firstname and lastname
+            LabelNames.Add(m_xmlr.GetAttribute("name"))
+
             m_xmlr.Read()
-            'Get the firstName Element Value
-            labelcodes.Add(m_xmlr.ReadElementString("code"))
+            If Not m_xmlr.IsStartElement() Then
+                Exit While
+            End If
+            LabelCodes.Add(m_xmlr.ReadElementString("code"))
         End While
         'close the reader
         m_xmlr.Close()
-
     End Sub
 End Class

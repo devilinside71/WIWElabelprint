@@ -64,7 +64,7 @@ Public Class Form1
         Dim s As String
         Dim res As Boolean
 
-        s = ZebraPrint.labelcodes(0)
+        s = ZebraPrint.LabelCodes(0)
         s = s.Replace("VONALKOD", device_mac)
         s = s.Replace("LABELQTY", Trim(CStr(qty)))
 
