@@ -55,18 +55,18 @@ Partial Class Form1
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.64384!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.21918!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(616, 365)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.16438!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.19178!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(745, 340)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox1.Image = Global.WIWElabelprint.My.Resources.Resources.SM_kicsi
-        Me.PictureBox1.Location = New System.Drawing.Point(465, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(561, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(148, 73)
+        Me.PictureBox1.Size = New System.Drawing.Size(181, 67)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -75,9 +75,9 @@ Partial Class Form1
         '
         Me.ButtonMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.ButtonMain.Location = New System.Drawing.Point(3, 258)
+        Me.ButtonMain.Location = New System.Drawing.Point(3, 266)
         Me.ButtonMain.Name = "ButtonMain"
-        Me.ButtonMain.Size = New System.Drawing.Size(456, 104)
+        Me.ButtonMain.Size = New System.Drawing.Size(552, 71)
         Me.ButtonMain.TabIndex = 1
         Me.ButtonMain.Text = "Beolvas és Nyomtat"
         Me.ButtonMain.UseVisualStyleBackColor = True
@@ -88,18 +88,18 @@ Partial Class Form1
         Me.TextBoxID.Font = New System.Drawing.Font("Courier New", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.TextBoxID.Location = New System.Drawing.Point(3, 3)
         Me.TextBoxID.Name = "TextBoxID"
-        Me.TextBoxID.Size = New System.Drawing.Size(456, 44)
+        Me.TextBoxID.Size = New System.Drawing.Size(552, 44)
         Me.TextBoxID.TabIndex = 2
         '
         'TextBoxLog
         '
         Me.TextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxLog.Font = New System.Drawing.Font("Courier New", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.TextBoxLog.Location = New System.Drawing.Point(3, 82)
+        Me.TextBoxLog.Font = New System.Drawing.Font("Courier New", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.TextBoxLog.Location = New System.Drawing.Point(3, 76)
         Me.TextBoxLog.Multiline = True
         Me.TextBoxLog.Name = "TextBoxLog"
         Me.TextBoxLog.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxLog.Size = New System.Drawing.Size(456, 170)
+        Me.TextBoxLog.Size = New System.Drawing.Size(552, 184)
         Me.TextBoxLog.TabIndex = 3
         '
         'TableLayoutPanel2
@@ -107,12 +107,12 @@ Partial Class Form1
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonPrinterTest, 0, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(465, 258)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(561, 266)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(148, 100)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(148, 71)
         Me.TableLayoutPanel2.TabIndex = 4
         '
         'ButtonPrinterTest
@@ -120,7 +120,7 @@ Partial Class Form1
         Me.ButtonPrinterTest.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonPrinterTest.Location = New System.Drawing.Point(3, 3)
         Me.ButtonPrinterTest.Name = "ButtonPrinterTest"
-        Me.ButtonPrinterTest.Size = New System.Drawing.Size(142, 44)
+        Me.ButtonPrinterTest.Size = New System.Drawing.Size(142, 29)
         Me.ButtonPrinterTest.TabIndex = 0
         Me.ButtonPrinterTest.Text = "Nyomtató teszt"
         Me.ButtonPrinterTest.UseVisualStyleBackColor = True
@@ -133,13 +133,13 @@ Partial Class Form1
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonDatabaseArch, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.NumericUpDownQty, 0, 2)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(465, 82)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(561, 76)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 3
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(148, 170)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(181, 184)
         Me.TableLayoutPanel3.TabIndex = 5
         '
         'ButtonDatabaseArch
@@ -147,7 +147,7 @@ Partial Class Form1
         Me.ButtonDatabaseArch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonDatabaseArch.Location = New System.Drawing.Point(3, 3)
         Me.ButtonDatabaseArch.Name = "ButtonDatabaseArch"
-        Me.ButtonDatabaseArch.Size = New System.Drawing.Size(142, 50)
+        Me.ButtonDatabaseArch.Size = New System.Drawing.Size(175, 55)
         Me.ButtonDatabaseArch.TabIndex = 0
         Me.ButtonDatabaseArch.Text = "Adatbázis archiválása"
         Me.ButtonDatabaseArch.UseVisualStyleBackColor = True
@@ -156,9 +156,9 @@ Partial Class Form1
         '
         Me.NumericUpDownQty.Dock = System.Windows.Forms.DockStyle.Fill
         Me.NumericUpDownQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.NumericUpDownQty.Location = New System.Drawing.Point(3, 115)
+        Me.NumericUpDownQty.Location = New System.Drawing.Point(3, 125)
         Me.NumericUpDownQty.Name = "NumericUpDownQty"
-        Me.NumericUpDownQty.Size = New System.Drawing.Size(142, 47)
+        Me.NumericUpDownQty.Size = New System.Drawing.Size(175, 47)
         Me.NumericUpDownQty.TabIndex = 1
         Me.NumericUpDownQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.NumericUpDownQty.Value = New Decimal(New Integer() {2, 0, 0, 0})
@@ -167,7 +167,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(616, 365)
+        Me.ClientSize = New System.Drawing.Size(745, 340)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "Form1"
         Me.Text = "WIWE Eszköz-azonosító nyomtató    ©2020 Sanatmetal Kft."
