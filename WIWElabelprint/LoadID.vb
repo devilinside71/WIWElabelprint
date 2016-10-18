@@ -24,13 +24,12 @@
         '1., WIWE a kezdete a névnek
         '2., B0B4 a BT chip gyártója
         Dim res As Boolean
-        device_nap = Left(device_nap, 4)
+        device_nap = Left(device_nap, Len(My.Settings.IDstring))
         res = False
-        If device_nap = "B0B4" Then
+        If device_nap = My.Settings.IDstring Then
             res = True
         End If
 
         Return res
     End Function
-
 End Module

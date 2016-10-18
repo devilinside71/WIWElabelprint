@@ -71,6 +71,15 @@ Namespace My
                 Return CType(Me("IDFilePath"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("B0B4")>  _
+        Public ReadOnly Property IDstring() As String
+            Get
+                Return CType(Me("IDstring"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
