@@ -13,7 +13,7 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonPrinterTest_Click(sender As Object, e As EventArgs) Handles ButtonPrinterTest.Click
-        Call PrintZPL("TESZT12345678", 1)
+        Call PrintZPL("B0B4B0B4B0B4", 1)
 
     End Sub
 
