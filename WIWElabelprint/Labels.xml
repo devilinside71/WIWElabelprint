@@ -5,7 +5,7 @@
       ^XA
       ^LH10,40
       ^FX Barcode Code128, Code39 is too wide
-      ^FT40,35^BY2^BCN,60,Y,N,N^FDVONALKOD^FS
+      ^FT0,35^FH^FB400,3,0,C^BY2^BCN,60,Y,N,N^FDVONALKOD^FS
       ^PQLABELQTY
       ^XZ
     </code>
