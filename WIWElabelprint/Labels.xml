@@ -4,7 +4,7 @@
     <code>
       ^XA
       ^LH10,40
-      ^FX Barcode Code128, Code39 is too wide
+      ^FX Barcode Code128, Code39 is too wide, center in block
       ^FT0,35^FH^FB400,3,0,C^BY2^BCN,60,Y,N,N^FDVONALKOD^FS
       ^PQLABELQTY
       ^XZ
